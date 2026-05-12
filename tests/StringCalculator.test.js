@@ -41,5 +41,9 @@ test('add("-1,-2") throws exception listing all negatives', () => {
   expect(() => add("-1,-2")).toThrow("negatives not allowed: -1, -2");
 });
 
+test('add("1,2,4\\n5,6") returns 18', () => {
+  expect(add("1,2,4\n5,6")).toBe(18);
+});
+
 });
 
