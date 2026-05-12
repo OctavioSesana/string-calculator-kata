@@ -13,5 +13,9 @@ describe('StringCalculator', () => {
     expect(add("1,2")).toBe(3);
     });
 
+    test('add("1,2,3") returns 6', () => {
+  expect(add("1,2,3")).toBe(6);
+});
+
 });
 
