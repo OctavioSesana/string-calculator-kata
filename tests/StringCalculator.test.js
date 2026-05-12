@@ -29,5 +29,9 @@ test('add("//;\\n1;2") returns 3', () => {
   expect(add("//;\n1;2")).toBe(3);
 });
 
+test('add("//|\n1|2|3") returns 6', () => {
+  expect(add("//|\n1|2|3")).toBe(6);
+});
+
 });
 
