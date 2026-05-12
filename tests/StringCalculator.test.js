@@ -25,5 +25,9 @@ test('add("1\n2\n3") returns 6', () => {
   expect(add("1\n2\n3")).toBe(6);
 });
 
+test('add("//;\\n1;2") returns 3', () => {
+  expect(add("//;\n1;2")).toBe(3);
+});
+
 });
 
