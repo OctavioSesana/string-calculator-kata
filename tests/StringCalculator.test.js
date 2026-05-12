@@ -9,5 +9,9 @@ describe('StringCalculator', () => {
   expect(add("1")).toBe(1);
 });
 
+    test('add("1,2") returns 3', () => {
+    expect(add("1,2")).toBe(3);
+    });
+
 });
 
