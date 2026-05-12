@@ -36,5 +36,10 @@ test('add("//|\n1|2|3") returns 6', () => {
 test('add("-1") throws an exception', () => {
   expect(() => add("-1")).toThrow("negatives not allowed: -1");
 });
+
+test('add("-1,-2") throws exception listing all negatives', () => {
+  expect(() => add("-1,-2")).toThrow("negatives not allowed: -1, -2");
+});
+
 });
 
