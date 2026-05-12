@@ -33,5 +33,8 @@ test('add("//|\n1|2|3") returns 6', () => {
   expect(add("//|\n1|2|3")).toBe(6);
 });
 
+test('add("-1") throws an exception', () => {
+  expect(() => add("-1")).toThrow("negatives not allowed: -1");
+});
 });
 
