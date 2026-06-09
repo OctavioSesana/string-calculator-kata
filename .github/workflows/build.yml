@@ -23,5 +23,24 @@ jobs:
       - name: Instalar dependencias
         run: npm install
 
-      - name: Ejecutar tests
-        run: npm test
+      - name: Ejecutar tests con coverage
+        run: npm run test:coverage
+
+      - name: Publicar reporte de coverage en el PR
+        uses: davelosert/vitest-coverage-report-action@v2
+        if: always()
+        with:
+          json-summary-path: ./coverage/coverage-summary.json
+
+      - name: Generar badge de coverage
+        uses: demosjarco/badge-generator@v1.4.1
+        with:
+          label: coverage
+          path: ./coverage/coverage-summary.json
+          output: ./badges/coverage.svg
+
+      - name: Subir badge al repo
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "ci: actualizar badge de coverage"
+          file_pattern: badges/coverage.svg
