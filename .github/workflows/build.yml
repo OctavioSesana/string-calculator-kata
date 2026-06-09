@@ -33,14 +33,6 @@ jobs:
           json-summary-path: ./coverage/coverage-summary.json
 
       - name: Generar badge de coverage
-        uses: demosjarco/badge-generator@v1.4.1
-        with:
-          label: coverage
-          path: ./coverage/coverage-summary.json
-          output: ./badges/coverage.svg
-
-      - name: Subir badge al repo
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "ci: actualizar badge de coverage"
-          file_pattern: badges/coverage.svg
+        uses: coverage-badge-creator/action@1.0.8
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
